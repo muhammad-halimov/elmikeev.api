@@ -1,0 +1,19 @@
+name: php-fpm
+description: Template for docker deployment of PHP FPM
+ignoreFiles: .git composer.lock vendor
+modules:
+- name: init
+  language: docker
+  description: 
+#  volumes:
+#  - alias: "data-vol"
+#    mountPath: /app/data
+  ports:
+  - alias: "http"
+    port: 80
+  config:
+    scale:
+      min: 1
+  functions:
+  - name: php
+    description: Entry Point

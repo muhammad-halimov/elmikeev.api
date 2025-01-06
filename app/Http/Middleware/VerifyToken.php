@@ -20,8 +20,9 @@ class VerifyToken
     {
         $token = $request->query('key');
         $storedToken = Config::get('s.secret_token');
+//        $storedToken = env('API_KEY');
 
-        if ($storedToken !== $token) {
+        if ($storedToken != $token) {
             Log::info("Stored Token: $storedToken");
             Log::info("Incoming Token: $token");
 
